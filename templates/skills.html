@@ -1,0 +1,81 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+
+{% bootstrap_javascript %}
+
+{% bootstrap_messages %}
+
+
+
+{% block content %}
+
+<section class="section about-me" >
+
+  
+<div class="container">
+    <div class="section-heading">
+      <h2>What I’m good at?</h2>
+      <div class="line-dec"></div>
+      <span
+        > I'm a full stack software developer who has expertise in all layers of
+        an application's technology stack. This includes the front-end (client-side) and back-end (server-side)
+        development, as well as the database, server, and operating system..</span
+      >
+    </div>
+    <div class="row ">
+      <div class="col-md-6  ">
+        <div class="service-item">
+          <div class="first-service-icon service-icon"></div>
+          <h4>HTML5 &amp; <br> CSS3</h4>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="service-item">
+          <div class="second-service-icon service-icon"></div>
+          <h4>Bootstrap &amp; <br> SASS</h4>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="service-item">
+          <div class="third-service-icon service-icon"></div>
+          <h4>Python  &amp; Django &amp; Django Restframework</h4>
+         
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="service-item">
+          <div class="fourth-service-icon service-icon"></div>
+          <h4>Javascript,  React &amp; <br> Next Js</h4>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      {% for skill in skills %}
+      <div class="col-md-4  ">
+        <div class="d-flex justify-content-between">
+          <h6 class="font-weight-bold">{{skill.title}}</h6>
+          <h6 class="font-weight-bold">{{skill.level}}%</h6>
+      </div>
+      <div class="progress">
+        <div class="progress-bar" style="width: {{skill.level}}%; background-color:{{skill.color}}"></div>
+          <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="background-color:{{skill.color}}"></div>
+      </div>
+        
+       
+      
+      </div>
+      {% endfor %}
+      </div>
+
+      
+  </div>
+
+  
+</section>
+
+{% endblock %}

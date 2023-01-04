@@ -1,0 +1,66 @@
+
+{% extends 'base.html'%}
+
+{% load static %}
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+
+{% bootstrap_javascript %}
+
+{% bootstrap_messages %}
+
+
+{% block content %}
+<section class="section about-me" >
+<div class="container">
+	<div class="section-heading">
+	  <h2>About Me</h2>
+	  <div class="line-dec"></div>
+	  <span><h5>I 'm  a  full stack  developer with great  passionate for developing  and  creating highly scalable and interactive business applications and experiences.</h5></span
+	  >
+	</div>
+	<div class="left-image-post">
+	  <div class="row">
+		<div class="col-md-6">
+		  <div class="left-image">
+			<img src="{% static 'assets/images/left-image.jpg' %}" alt="" />
+		  </div>
+		</div>
+		<div class="col-md-6">
+		  <div class="left-text">
+			<h4>Introduction</h4>
+				{% for info in about %}
+					{{info.description|slice:"0:156"}}
+					<div class="white-button">
+						<a href="{% url 'details' info.id %}">Read More</a>
+					</div>
+				{% endfor %}
+		  </div>
+		</div>
+	</div>
+	<div class="right-image-post service-item">
+	  <div class="row">
+		<div class="col-md-6">
+		  <div class="left-text">
+			<ul class="cta-info__list">
+				<p><h5 > <span>Name:</span> <span>Audu Paul</span></h5></p>
+				<p><h5 ><span>Address:</span> <span>77 Oduduwa way Ikeja Lagos</span></h5></p>
+				<p><h5 ><span>Zip code:</span> <span>100001</span></h5></p>
+				<p><h5 ><span>Email:<span>audupaul58@gmail.com</span></h5></p>
+				<p><h5 ><span>Phone:</span> <span>+234-8127590007</span></h5></p>
+			</ul>
+		  </div>
+		</div>
+		<div class="col-md-6">
+		  <div class="right-image">
+			<img src="{% static 'assets/images/right-image.jpg' %}" alt="" />
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+</section>
+<!-- About End -->
+
+{% endblock %}

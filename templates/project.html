@@ -1,0 +1,83 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+
+{% bootstrap_javascript %}
+
+{% bootstrap_messages %}
+
+
+
+{% block content %}
+
+ <section class="section my-work" data-section="section3">
+      <div class="container">
+        <div class="section-heading">
+          <h2>My Work</h2>
+          <div class="line-dec"></div>
+          <span
+            >Aenean sollicitudin ex mauris, lobortis lobortis diam euismod sit
+            amet. Duis ac elit vulputate, lobortis arcu quis, vehicula
+            mauris.</span
+          >
+        </div>
+        <div class="row">
+          <div class="isotope-wrapper">
+            <form class="isotope-toolbar">
+              <label
+                ><input
+                  type="radio"
+                  data-type="*"
+                  checked=""
+                  name="isotope-filter"
+                />
+                </label
+              >
+              <label
+                ><input
+                  type="radio"
+                  data-type="people"
+                  name="isotope-filter"
+                />
+                </label
+              >
+              <label
+                ><input
+                  type="radio"
+                  data-type="nature"
+                  name="isotope-filter"
+                />
+                </label
+              >
+
+            </form>
+            <div class="isotope-box">
+              {% for project in projects %}
+              <div class="isotope-item" data-type="nature">
+                <figure class="snip1321">
+                  <img
+                    src="{{ project.image.url }}"
+                    alt="sq-sample26"
+                  />
+                  <figcaption>
+                    <a
+                      href="{% static 'assets/images/portfolio-01.jpg' %}"
+                      data-lightbox="image-1"
+                      data-title="Caption"
+                      ><i class="fa fa-search"></i
+                    ></a>
+                    <h4>{{project.title}}</h4>
+                    <span><a href="{{project.url}}" target="_blank">View More</a></span>
+                  </figcaption>
+                </figure>
+              </div>
+                {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+  {% endblock %}
